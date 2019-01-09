@@ -6,19 +6,18 @@ from itertools import zip_longest
 from gpiozero import LED
 
 def main():
-    #                    M8               S8
-    leds = [ None,    LED(24), None,    LED(12),
-    #          M40       M4       S40     S4
-             LED(11), LED(25), LED(13), LED(16),
-    #          M20       M2       S20     S2
-             LED(5),  LED(8),  LED(19), LED(20),
-    #          M10       M1       S10     S1
-             LED(6),  LED(7),  LED(26), LED(21)]
-
+    #                 H8                M8                S8
+    leds = [ None,    LED(14), None,    LED(24), None,    LED(12),
+    #        H40      H4       M40      M4       S40      S4
+             LED(22), LED(15), LED(11), LED(25), LED(13), LED(16),
+    #        H20      H2       M20      M2       S20      S2
+             LED(10), LED(18), LED(5),  LED(8),  LED(19), LED(20),
+    #        H10      H1       M10      M1       S10      S1
+             LED(9),  LED(23), LED(6),  LED(7),  LED(26), LED(21)]
 
     try:
         while True: 
-            t = time.strftime('%M%S')
+            t = time.strftime('%H%M%S')
             print(t)
             b = bcd(t)
             s = vertical_strings(b)
