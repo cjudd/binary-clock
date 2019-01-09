@@ -1,12 +1,5 @@
 #!/usr/bin/env python3
-'''A binary clock: prints the current time (HHMMSS) in binary-coded decimal.
-Each BCD digit takes one column; least-significant bits are at the bottom.
-Example: at 21:14:59 (local time):
-000001
-000110
-100000
-011011
-'''
+'''A binary clock: displays the current time (HHMMSS) in binary-coded decimal.'''
 
 import time
 from itertools import zip_longest
@@ -14,7 +7,7 @@ from gpiozero import LED
 
 def main():
 
-
+    #               S8      S40     S4      S20     S2      S10     S1
     leds = [None, LED(5), LED(8), LED(4), LED(7), LED(3), LED(6), LED(2)]
 
     try:
@@ -61,4 +54,3 @@ def light(strings, leds):
 
 if __name__ == '__main__':
     main()
-
